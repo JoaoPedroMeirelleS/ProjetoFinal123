@@ -33,8 +33,8 @@
                 <a href="index.aspx" title="Página incial">
                     <img id="logo" src="assets/img/logoarmario.png" alt="Worlds.Docs Home
 "></a>
-                <h1 id="siteName">Worlds.Docs -
-                    <asp:Label ID="ltrCookie" runat="server"></asp:Label></h1>
+                <h1 id="siteName">World.Docs
+                    <asp:Label Visible="false" ID="ltrCookie" runat="server"></asp:Label></h1>
                 <a href="#menu" id="menuToggle" title="Mostra menu" onclick="menuToggle(this)"><i class="fas fa-fw fa-ellipsis-v"></i></a>
             </div>
         </header>
@@ -51,10 +51,10 @@
                 <a href="UploadDeArquivo.aspx" title="Enviar novo documento">
                     <i class="fas fa-file-upload fa-fw"></i><span>Enviar</span>
                 </a>
-                <a href="contacts" title="Faça contato">
+                <a href="contatos.aspx" title="Faça contato">
                     <i class="fas fa-comments fa-fw"></i><span>Contatos</span>
                 </a>
-                <a href="about" title="Sobre o App">
+                <a href="about.aspx" title="Sobre o App">
                     <i class="fas fa-info-circle fa-fw"></i><span>Sobre</span>
                 </a>
 

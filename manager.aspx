@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SitePage.Master" AutoEventWireup="true" CodeBehind="manager.aspx.cs" Inherits="ProjetoFinal.manager" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <link rel="stylesheet" href="css/gerenciar.css">
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -7,7 +10,7 @@
         <asp:Label ID="managerCookie" runat="server" Text="" Visible="false"></asp:Label>
 
         
-            <table style="width:100%;">
+            <table style="width:100%;" >
                   <tr>
     <th>ID</th>
     <th>Título</th>

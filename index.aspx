@@ -4,21 +4,23 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <center>
     <!-- Faz a Conexao com o Banco e liberar os elementos  pelo ConnectionString -->
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [usuario] WHERE [email] = @email" InsertCommand="INSERT INTO [usuario] ([email], [senha], [nome]) VALUES (@email, @senha, @nome)" SelectCommand="SELECT * FROM [usuario]" UpdateCommand="UPDATE [usuario] SET [Id] = @Id, [senha] = @senha, [nome] = @nome WHERE [email] = @email" OnSelecting="SqlDataSource1_Selecting">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [usuario] WHERE [email] = @email" InsertCommand="INSERT INTO [usuario] ([perfil], [nome], [senha], [email]) VALUES (@perfil, @nome, @senha, @email)" SelectCommand="SELECT [perfil], [nome], [senha], [email], [Id_user] FROM [usuario]" UpdateCommand="UPDATE [usuario] SET [perfil] = @perfil, [nome] = @nome, [senha] = @senha, [Id_user] = @Id_user WHERE [email] = @email" OnSelecting="SqlDataSource1_Selecting">
     <DeleteParameters>
         <asp:Parameter Name="email" Type="String" />
     </DeleteParameters>
     <InsertParameters>
-        <asp:Parameter Name="email" Type="String" />
-        <asp:Parameter Name="senha" Type="String" />
+        <asp:Parameter Name="perfil" Type="String" />
         <asp:Parameter Name="nome" Type="String" />
+        <asp:Parameter Name="senha" Type="String" />
+        <asp:Parameter Name="email" Type="String" />
     </InsertParameters>
     <UpdateParameters>
-        <asp:Parameter Name="Id" Type="Int32" />
-        <asp:Parameter Name="senha" Type="String" />
+        <asp:Parameter Name="perfil" Type="String" />
         <asp:Parameter Name="nome" Type="String" />
+        <asp:Parameter Name="senha" Type="String" />
+        <asp:Parameter Name="Id_user" Type="Int32" />
         <asp:Parameter Name="email" Type="String" />
     </UpdateParameters>
 </asp:SqlDataSource>
@@ -78,7 +80,20 @@
                     </UpdateParameters>
                 </asp:SqlDataSource>
 
+        <asp:Label ID="ltrCookie" Visible="false" runat="server"></asp:Label>
+                <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="email" DataSourceID="SqlDataSource1"
+                    Visible="false">
+                    <Columns>
+                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                        <asp:BoundField DataField="perfil" HeaderText="perfil" SortExpression="perfil" />
+                        <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome" />
+                        <asp:BoundField DataField="senha" HeaderText="senha" SortExpression="senha" />
+                        <asp:BoundField DataField="email" HeaderText="email" ReadOnly="True" SortExpression="email" />
+                        <asp:BoundField DataField="Id_user" HeaderText="Id_user" InsertVisible="False" ReadOnly="True" SortExpression="Id_user" />
+                    </Columns>
+                </asp:GridView>
+
 
                 </form>
-    
+    </center>
 </asp:Content>

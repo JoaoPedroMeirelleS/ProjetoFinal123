@@ -47,7 +47,7 @@ namespace ProjetoFinal
 
                 string perfilCookie = registro["perfil"].ToString();
                 HttpCookie perfil = new HttpCookie("perfil", perfilCookie);
-                Response.Cookies.Add(login);
+                Response.Cookies.Add(perfil);
 
 
                 //Cria o cookie do id do usuário
